@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eLibrary.WebApi", "eLibrary.WebApi\eLibrary.WebApi.csproj", "{EFC51D18-27CC-4476-B6D8-1B128BC5318B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLibrary.WebApi", "eLibrary.WebApi\eLibrary.WebApi.csproj", "{EFC51D18-27CC-4476-B6D8-1B128BC5318B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eLibrary.WebApi.OData", "eLibrary.WebApi.OData\eLibrary.WebApi.OData.csproj", "{B9B59957-F501-47EC-BEFB-51254773A9DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eLibrary.WebApi.OData", "eLibrary.WebApi.OData\eLibrary.WebApi.OData.csproj", "{B9B59957-F501-47EC-BEFB-51254773A9DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eLibrary.WebApi.OData.Versioning", "eLibrary.WebApi.OData.Versioning\eLibrary.WebApi.OData.Versioning.csproj", "{5D77F36F-D1B0-41AE-AEF2-FBC17CB5C349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B9B59957-F501-47EC-BEFB-51254773A9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9B59957-F501-47EC-BEFB-51254773A9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9B59957-F501-47EC-BEFB-51254773A9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D77F36F-D1B0-41AE-AEF2-FBC17CB5C349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D77F36F-D1B0-41AE-AEF2-FBC17CB5C349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D77F36F-D1B0-41AE-AEF2-FBC17CB5C349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D77F36F-D1B0-41AE-AEF2-FBC17CB5C349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
