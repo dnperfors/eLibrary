@@ -1,4 +1,3 @@
-using eLibrary.WebApi.OData.Models;
 using Microsoft.AspNetCore.OData;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApiVersioning()
     .AddOData(options => options.AddRouteComponents("/odata/v{version:apiVersion}"))
-    .AddODataApiExplorer();
+    .AddODataApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
 var app = builder.Build();
 
@@ -23,7 +26,18 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        var descriptions = app.DescribeApiVersions();
+
+        // build a swagger endpoint for each discovered API version
+        foreach (var description in descriptions)
+        {
+            var url = $"/swagger/{description.GroupName}/swagger.json";
+            var name = description.GroupName.ToUpperInvariant();
+            options.SwaggerEndpoint(url, name);
+        }
+    });
 }
 app.UseODataRouteDebug();
 
@@ -31,9 +45,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
 
 app.Run();
