@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning;
 using Asp.Versioning.OData;
+using eLibrary.Models;
 using Microsoft.OData.ModelBuilder;
 
 namespace eLibrary.WebApi.OData.Models

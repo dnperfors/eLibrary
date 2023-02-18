@@ -1,5 +1,6 @@
 ﻿using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
+using eLibrary.Models;
 
 namespace eLibrary.WebApi.OData.Models
 {

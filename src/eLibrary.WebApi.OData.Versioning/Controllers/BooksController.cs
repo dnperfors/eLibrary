@@ -1,5 +1,5 @@
-
-using eLibrary.WebApi.OData.Models;
+using Asp.Versioning;
+using eLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace eLibrary.WebApi.OData.Controllers
 {
+    [ApiVersion(1.0)]
     public class BooksController : ODataController
     {
         private Book[] books = new[]
@@ -30,6 +31,6 @@ namespace eLibrary.WebApi.OData.Controllers
 
         [HttpGet]
         [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.None)]
-        public SingleResult<Book> GetBook(int key) => SingleResult.Create(books.Where(x => x.Id == key).AsQueryable());
+        public SingleResult<Book> GetBook([FromODataUri] int key) => SingleResult.Create(books.Where(x => x.Id == key).AsQueryable());
     }
 }

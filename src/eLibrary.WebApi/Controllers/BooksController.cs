@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using eLibrary.Models;
 
 namespace eLibrary.WebApi.Controllers
 {
@@ -6,14 +7,8 @@ namespace eLibrary.WebApi.Controllers
     [Route("[controller]")]
     public class BooksController : ControllerBase
     {
-        private Book[] books = new[]
-        {
-            new Book(1, "Clean Craftsmanship", "Uncle Bob"),
-            new Book(2, "The Clean Coder", "Uncle Bob"),
-            new Book(3, "Clean Code", "Uncle Bob"),
-            new Book(4, "The Pragmatic Programmer", "Andrew Hunt")
-        };
         private readonly ILogger<BooksController> _logger;
+        private readonly BookRepository books = new();
 
         public BooksController(ILogger<BooksController> logger)
         {
@@ -21,6 +16,6 @@ namespace eLibrary.WebApi.Controllers
         }
             
         [HttpGet("{id}")]
-        public Book? GetBook(int id) => books.SingleOrDefault(x => x.ID == id);
+        public Book? GetBook(int id) => books.GetBook(id);
     }
 }
